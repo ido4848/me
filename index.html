@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="PhD Student in Computational Neuroscience | Developer & Security Researcher">
   <title>Your Name - Computational Neuroscientist</title>
+  
+  <!-- Link to Font Awesome for social media icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Link to your CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,19 +27,33 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+    <!-- Social Media Links in Header -->
+    <div class="social-links-header">
+      <a href="https://twitter.com/YourUsername" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://linkedin.com/in/YourUsername" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:your.email@domain.com"><i class="fas fa-envelope"></i></a>
+    </div>
   </header>
 
   <!-- Home Section -->
   <section id="home" class="section">
-    <h1>Welcome to My Personal Website</h1>
-    <p>PhD Student in Computational Neuroscience | Developer & Security Researcher</p>
+    <div class="home-content">
+      <img src="profile-picture.jpg" alt="Your Name" class="profile-picture">
+      <div class="welcome-text">
+        <h1>Welcome to My Personal Website</h1>
+        <p>PhD Student in Computational Neuroscience | Developer & Security Researcher</p>
+      </div>
+    </div>
   </section>
 
   <!-- About Section -->
   <section id="about" class="section">
     <h2>About Me</h2>
-    <p>I am currently pursuing a PhD in Computational Neuroscience. My research interests lie in both passive and non-passive neuronal models. I also have a strong background in software development and security research.</p>
-    <a href="Your-CV-Link.pdf" target="_blank">Download CV</a>
+    <div class="about-content">
+      <img src="profile-picture-small.jpg" alt="Your Name" class="about-picture">
+      <p>I am currently pursuing a PhD in Computational Neuroscience. My research interests lie in both passive and non-passive neuronal models. I also have a strong background in software development and security research.</p>
+    </div>
+    <a href="Your-CV-Link.pdf" target="_blank" class="cv-link">Download CV</a>
   </section>
 
   <!-- Research Section -->
@@ -60,8 +79,8 @@
   <section id="publications" class="section">
     <h2>Publications</h2>
     <ul>
-      <li><a href="Link-to-your-paper-1">Paper Title 1</a> - Journal Name, Year</li>
-      <li><a href="Link-to-your-paper-2">Paper Title 2</a> - Conference Name, Year</li>
+      <li><a href="Link-to-your-paper-1" target="_blank">Paper Title 1</a> - Journal Name, Year</li>
+      <li><a href="Link-to-your-paper-2" target="_blank">Paper Title 2</a> - Conference Name, Year</li>
     </ul>
   </section>
 
@@ -69,13 +88,13 @@
   <section id="repositories" class="section">
     <h2>Repositories</h2>
     <ul>
-      <li><a href="https://github.com/YourUsername">GitHub Profile</a></li>
-      <li><a href="https://gitlab.com/YourUsername">GitLab Profile</a></li>
+      <li><a href="https://github.com/YourUsername" target="_blank">GitHub Profile</a></li>
+      <li><a href="https://gitlab.com/YourUsername" target="_blank">GitLab Profile</a></li>
     </ul>
     <div>
       <h3>Highlighted Repositories</h3>
-      <p><a href="https://github.com/YourUsername/Repo1">Repository 1</a> - Description of the project.</p>
-      <p><a href="https://github.com/YourUsername/Repo2">Repository 2</a> - Description of the project.</p>
+      <p><a href="https://github.com/YourUsername/Repo1" target="_blank">Repository 1</a> - Description of the project.</p>
+      <p><a href="https://github.com/YourUsername/Repo2" target="_blank">Repository 2</a> - Description of the project.</p>
     </div>
   </section>
 
@@ -93,9 +112,15 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2024 Your Name | <a href="https://orcid.org/your-orcid">ORCID</a></p>
+    <div class="social-links-footer">
+      <a href="https://twitter.com/YourUsername" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://linkedin.com/in/YourUsername" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:your.email@domain.com"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p>&copy; 2024 Your Name | <a href="https://orcid.org/your-orcid" target="_blank">ORCID</a></p>
   </footer>
 
+  <!-- Link to your JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
