@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+/* Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +7,6 @@
   
   body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
   }
@@ -15,11 +14,8 @@
   /* Header Styles */
   header {
     background-color: #333;
-    color: #fff;
+    color: white;
     padding: 10px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
   }
   
   nav ul {
@@ -33,56 +29,31 @@
   }
   
   nav ul li a {
-    color: #fff;
+    color: white;
     text-decoration: none;
     font-size: 18px;
-    transition: color 0.3s;
-  }
-  
-  nav ul li a:hover {
-    color: #ff6347;
-  }
-  
-  /* Social Media Links in Header */
-  .social-links-header {
-    text-align: center;
-    margin-top: 10px;
-  }
-  
-  .social-links-header a {
-    color: #fff;
-    margin: 0 10px;
-    font-size: 20px;
-    transition: color 0.3s;
-  }
-  
-  .social-links-header a:hover {
-    color: #ff6347;
   }
   
   /* Home Section Styles */
   .section {
     padding: 60px 20px;
-    background-color: #fff;
-    margin: 20px 0;
+    background-color: white;
+    margin: 20px auto;
     border-radius: 8px;
     width: 90%;
     max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
   .home-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
   }
   
   .profile-picture {
-    width: 150px;
-    height: 150px;
+    width: 180px;  /* Enlarged Picture */
+    height: 250px; /* Enlarged Picture */
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 20px;
@@ -99,90 +70,52 @@
     color: #555;
   }
   
-  /* About Section Styles */
-  .about-content {
+  /* Social Media Links Styles */
+  .social-links {
+    margin-top: 20px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    justify-content: center; /* Center the links */
   }
   
-  .about-picture {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-    border: 3px solid #ff6347;
+  .social-links a {
+    color: #333;
+    margin: 0 15px; /* Added more space between icons */
+    font-size: 30px; /* Enlarged icons */
+    transition: color 0.3s;
   }
   
-  .about-content p {
+  .social-links a:hover {
+    color: #ff6347;
+  }
+  
+  /* About Section */
+  #about p {
     max-width: 800px;
-    margin-bottom: 20px;
-    font-size: 1.1em;
+    margin: 20px auto;
+    text-align: center;
     color: #555;
   }
   
   .cv-link {
     display: inline-block;
+    margin-top: 20px;
     padding: 10px 20px;
     background-color: #ff6347;
-    color: #fff;
+    color: white;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s;
   }
   
   .cv-link:hover {
     background-color: #e5533d;
   }
   
-  /* Social Media Links in Footer */
-  footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-  }
-  
-  .social-links-footer {
-    margin-bottom: 10px;
-  }
-  
-  .social-links-footer a {
-    color: #fff;
-    margin: 0 10px;
-    font-size: 20px;
-    transition: color 0.3s;
-  }
-  
-  .social-links-footer a:hover {
-    color: #ff6347;
-  }
-  
-  footer a {
-    color: #ff6347;
-    text-decoration: none;
-  }
-  
-  footer a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Other Sections Styles */
+  /* Other Sections */
   h2 {
     text-align: center;
     margin-bottom: 20px;
     font-size: 2em;
     color: #333;
-  }
-  
-  p {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 20px auto;
-    font-size: 1.1em;
-    color: #555;
   }
   
   ul {
@@ -199,32 +132,20 @@
   ul li a {
     color: #ff6347;
     text-decoration: none;
-    transition: color 0.3s;
   }
   
   ul li a:hover {
     color: #e5533d;
   }
   
-  /* Repositories Highlight */
-  #repositories div {
-    margin-top: 20px;
-  }
-  
-  #repositories div p {
-    text-align: left;
-    max-width: 800px;
-    margin: 10px auto;
-  }
-  
-  /* Contact Form Styles */
+  /* Contact Section */
   #contact form {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   
-  #contact form input, 
+  #contact form input,
   #contact form textarea {
     width: 80%;
     max-width: 500px;
@@ -248,25 +169,20 @@
     background-color: #ff6347;
   }
   
-  /* Responsive Styles */
-  @media (min-width: 768px) {
-    .home-content {
-      flex-direction: row;
-      align-items: center;
-      text-align: left;
-    }
+  /* Footer Styles */
+  footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+  }
   
-    .welcome-text {
-      margin-left: 20px;
-    }
+  footer a {
+    color: #ff6347;
+    text-decoration: none;
+  }
   
-    .about-content {
-      flex-direction: row;
-      text-align: left;
-    }
-  
-    .about-picture {
-      margin-right: 20px;
-    }
+  footer a:hover {
+    text-decoration: underline;
   }
   
