@@ -1,121 +1,354 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="PhD Student in Computational Neuroscience | Algorithm Developer, Security Researcher, Software Engineer">
-  <title>Ido Aizenbud</title>
-  
-  <!-- Font Awesome for social media icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Link to your CSS -->
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ido Aizenbud | Computational Neuroscience & Engineering</title>
+    <meta name="description" content="PhD Student in Computational Neuroscience, specializing in Deep Learning and Algorithm Security.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#151e2e',
+                            950: '#020617', 
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569; 
+        }
+    </style>
 </head>
-<body>
+<body class="bg-slate-950 text-slate-200 font-sans selection:bg-indigo-500/30">
 
-  <!-- Header / Navigation Bar -->
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <!-- <li><a href="#research">Research</a></li> -->
-        <!-- <li><a href="#projects">Projects</a></li> -->
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#repositories">Repositories</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-5">
+        <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+            <div class="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent cursor-pointer" onclick="document.getElementById('home').scrollIntoView({behavior: 'smooth'})">
+                Ido Aizenbud
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})" class="hover:text-indigo-400 transition-colors">About</button>
+                <button onclick="document.getElementById('publications').scrollIntoView({behavior: 'smooth'})" class="hover:text-indigo-400 transition-colors">Publications</button>
+                <button onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})" class="hover:text-indigo-400 transition-colors">Projects</button>
+                <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="hover:text-indigo-400 transition-colors">Contact</button>
+            </div>
 
-  <!-- Home Section -->
-  <section id="home" class="section">
-    <div class="home-content">
-      <img src="profile-picture.jpg" alt="Ido Aizenbud" class="profile-picture">
-      <div class="welcome-text">
-        <h1>Ido Aizenbud</h1>
-        <p>PhD Student in Computational Neuroscience | Algorithm Developer, Security Researcher, Software Engineer</p>
-        <div class="social-links">
-          <a href="https://x.com/IdoAizenbud" target="_blank"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.linkedin.com/in/ido-aizenbud-3700b7141/" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="mailto:ido.aizenbud@gmail.com"><i class="fas fa-envelope"></i></a>
-          <a href="https://scholar.google.com/citations?user=GvIP-xYAAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-slate-300 focus:outline-none">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
         </div>
-      </div>
-    </div>
-  </section>  
 
-  <!-- About Section -->
-  <section id="about" class="section">
-    <h2>About Me</h2>
-    <p>I'm currently pursuing a PhD in computational neuroscience, using Deep Learning to understand single neurons.
-      I am experienced in a wide range of areas such as Algorithm Development, Security Research, and Software Engineering.
-      More than 10 years of experience.</p>
-    <!-- <a href="Your-CV-Link.pdf" target="_blank" class="cv-link">Download CV</a> -->
-  </section>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-slate-900 border-b border-slate-800 p-6 flex flex-col space-y-4 shadow-xl">
+            <button onclick="toggleMenu(); document.getElementById('about').scrollIntoView({behavior: 'smooth'})" class="text-left py-2 hover:text-indigo-400">About</button>
+            <button onclick="toggleMenu(); document.getElementById('publications').scrollIntoView({behavior: 'smooth'})" class="text-left py-2 hover:text-indigo-400">Publications</button>
+            <button onclick="toggleMenu(); document.getElementById('projects').scrollIntoView({behavior: 'smooth'})" class="text-left py-2 hover:text-indigo-400">Projects</button>
+            <button onclick="toggleMenu(); document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="text-left py-2 hover:text-indigo-400">Contact</button>
+        </div>
+    </nav>
 
-  <!-- Research Section -->
-  <!-- <section id="research" class="section">
-    <h2>Research</h2>
-    <p>My research focuses on computational models of neuronal dynamics, particularly in understanding the behavior of passive dendrites.</p>
-  </section> -->
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 md:pt-48 md:pb-32 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="relative inline-block mb-8">
+                <div class="absolute inset-0 bg-indigo-500 rounded-full blur-xl opacity-20 animate-pulse"></div>
+                <!-- Profile Image with fallback logic handled in JS -->
+                <img 
+                    id="profile-img"
+                    src="https://ido4848.github.io/me/profile-picture.jpg" 
+                    alt="Ido Aizenbud" 
+                    class="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-slate-800 object-cover object-top shadow-2xl mx-auto"
+                />
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold text-slate-100 mb-6 tracking-tight">
+                Exploring the <span class="text-indigo-400">Biological</span> & <span class="text-purple-400">Artificial</span> Mind
+            </h1>
+            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-8">
+                PhD Student in Computational Neuroscience. 
+                <br class="hidden md:block" />
+                Specializing in Deep Learning, Single Neuron Dynamics, and Algorithm Security.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-all flex items-center gap-2">
+                    <i data-lucide="mail" class="w-4 h-4"></i>
+                    Get in Touch
+                </button>
+                <a href="https://github.com/ido4848" target="_blank" rel="noreferrer" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg font-medium transition-all flex items-center gap-2 border border-slate-700">
+                    <i data-lucide="github" class="w-4 h-4"></i>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </section>
 
-  <!-- Projects Section -->
-  <!-- <section id="projects" class="section">
-    <h2>Projects</h2>
-    <div>
-      <h3>Project 1: Computational Neuroscience Simulation</h3>
-      <p>A detailed simulation of neuronal dynamics using Python and custom models.</p>
-    </div>
-    <div>
-      <h3>Project 2: Security Research Tools</h3>
-      <p>A collection of tools developed for security testing and vulnerability analysis.</p>
-    </div>
-  </section> -->
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-slate-900/50">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="flex-1">
+                    <h2 class="text-2xl font-bold text-slate-100 mb-6 flex items-center gap-3">
+                        <i data-lucide="brain" class="text-indigo-400 w-6 h-6"></i>
+                        About Me
+                    </h2>
+                    <div class="space-y-4 text-slate-300 leading-relaxed">
+                        <p>
+                            I am currently pursuing a PhD in <span class="text-indigo-300 font-medium">Computational Neuroscience</span>, 
+                            where I leverage Deep Learning to unravel the functional complexity of single neurons.
+                        </p>
+                        <p>
+                            With over <span class="text-indigo-300 font-medium">10 years of experience</span> in the tech industry, 
+                            my background spans Algorithm Development, Security Research, and Software Engineering. 
+                            I bridge the gap between biological intelligence and efficient computational systems.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Skills / Stats -->
+                <div class="w-full md:w-auto flex flex-col gap-4">
+                    <div class="p-6 bg-slate-800 rounded-xl border border-slate-700 w-full md:w-64 hover:border-indigo-500/50 transition-colors">
+                        <i data-lucide="code" class="text-indigo-400 w-6 h-6 mb-3"></i>
+                        <h3 class="font-bold text-slate-200">Engineering</h3>
+                        <p class="text-sm text-slate-400 mt-1">10+ Years Experience</p>
+                    </div>
+                    <div class="p-6 bg-slate-800 rounded-xl border border-slate-700 w-full md:w-64 hover:border-purple-500/50 transition-colors">
+                        <i data-lucide="brain-circuit" class="text-purple-400 w-6 h-6 mb-3"></i>
+                        <h3 class="font-bold text-slate-200">Research</h3>
+                        <p class="text-sm text-slate-400 mt-1">Computational Neuroscience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Publications Section -->
-  <section id="publications" class="section">
-    <h2>Publications</h2>
-    <ul>
-      <li><a href="https://www.biorxiv.org/content/10.1101/2024.12.17.628883v1" target="_blank">What makes human cortical pyramidal neurons functionally complex</a> - bioRxiv, 2024</li>
-      <li><a href="https://www.biorxiv.org/content/10.1101/2024.07.19.604252v1" target="_blank">Spiking neural network models of sound localisation via a massively collaborative process</a> - bioRxiv, 2024</li>
-    </ul>
-  </section>
+    <!-- Publications Section -->
+    <section id="publications" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl font-bold text-slate-100 mb-10 flex items-center gap-3">
+                <i data-lucide="file-text" class="text-indigo-400 w-6 h-6"></i>
+                Selected Publications
+            </h2>
+            <div class="grid gap-6">
+                <!-- Publication 1 -->
+                <a href="https://www.biorxiv.org/content/10.1101/2024.12.17.628883v1" target="_blank" class="group block p-6 bg-slate-900 border border-slate-800 rounded-xl hover:border-indigo-500/50 hover:bg-slate-800/50 transition-all duration-300">
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1 p-2 bg-slate-800 rounded-lg group-hover:bg-indigo-500/10 group-hover:text-indigo-400 transition-colors">
+                            <i data-lucide="brain" class="w-5 h-5"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-slate-200 group-hover:text-indigo-300 transition-colors">
+                                What makes human cortical pyramidal neurons functionally complex
+                            </h3>
+                            <div class="flex items-center gap-3 mt-2 text-sm text-slate-400">
+                                <span class="bg-slate-800 px-2 py-0.5 rounded text-slate-300 border border-slate-700">bioRxiv</span>
+                                <span>2024</span>
+                                <span class="flex items-center gap-1 group-hover:text-indigo-400 transition-colors">
+                                    Read Paper <i data-lucide="external-link" class="w-3 h-3"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
 
-  <!-- Repositories Section -->
-  <section id="repositories" class="section">
-    <h2>Repositories</h2>
-    <ul>
-      <li><a href="https://github.com/ido4848" target="_blank">GitHub Profile</a></li>
-      <li><a href="https://gitlab.com/ido4848" target="_blank">GitLab Profile</a></li>
-    </ul>
-    <div>
-      <h3>Highlighted Repositories</h3>
-      <p><a href="https://gitlab.com/maha-vision" target="_blank">Mahavision</a> - A cheap smart glasses kit</p>
-      <p><a href="https://github.com/ido4848/haiku-hebrew" target="_blank">Haiku Heb</a> - An automatic haiku generator in hebrew</p>
-      <p><a href="https://github.com/ido4848/intelligence" target="_blank">Intelligence</a> - A generic platform for artificial intelligence</p>
-    </div>
-  </section>
+                <!-- Publication 2 -->
+                <a href="https://www.biorxiv.org/content/10.1101/2024.07.19.604252v1" target="_blank" class="group block p-6 bg-slate-900 border border-slate-800 rounded-xl hover:border-indigo-500/50 hover:bg-slate-800/50 transition-all duration-300">
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1 p-2 bg-slate-800 rounded-lg group-hover:bg-indigo-500/10 group-hover:text-indigo-400 transition-colors">
+                            <i data-lucide="cpu" class="w-5 h-5"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-slate-200 group-hover:text-indigo-300 transition-colors">
+                                Spiking neural network models of sound localisation via a massively collaborative process
+                            </h3>
+                            <div class="flex items-center gap-3 mt-2 text-sm text-slate-400">
+                                <span class="bg-slate-800 px-2 py-0.5 rounded text-slate-300 border border-slate-700">bioRxiv</span>
+                                <span>2024</span>
+                                <span class="flex items-center gap-1 group-hover:text-indigo-400 transition-colors">
+                                    Read Paper <i data-lucide="external-link" class="w-3 h-3"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:ido.aizenbud@gmail.com">ido.aizenbud@gmail.com</a></p>
-    <form id="contactForm">
-      <input type="text" id="name" placeholder="Your Name" required>
-      <input type="email" id="email" placeholder="Your Email" required>
-      <textarea id="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </section>
+    <!-- Projects/Repositories Section -->
+    <section id="projects" class="py-20 bg-slate-900/50 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex justify-between items-end mb-10">
+                <h2 class="text-2xl font-bold text-slate-100 flex items-center gap-3">
+                    <i data-lucide="terminal" class="text-indigo-400 w-6 h-6"></i>
+                    Repositories
+                </h2>
+                <div class="flex gap-4">
+                    <a href="https://github.com/ido4848" class="text-slate-400 hover:text-white transition-colors" title="GitHub">
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                    </a>
+                    <a href="https://gitlab.com/ido4848" class="text-slate-400 hover:text-white transition-colors" title="GitLab">
+                        <i data-lucide="gitlab" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Repo 1 -->
+                <a href="https://gitlab.com/maha-vision" target="_blank" class="flex flex-col p-6 bg-slate-950 border border-slate-800 rounded-xl hover:-translate-y-1 hover:border-purple-500/30 hover:shadow-lg hover:shadow-purple-500/5 transition-all duration-300 group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-2 bg-slate-900 rounded-lg text-slate-400 group-hover:text-purple-400 transition-colors">
+                            <i data-lucide="gitlab" class="w-5 h-5"></i>
+                        </div>
+                        <i data-lucide="external-link" class="w-4 h-4 text-slate-600 group-hover:text-slate-300"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-200 mb-2 group-hover:text-purple-300 transition-colors">Mahavision</h3>
+                    <p class="text-slate-400 text-sm mb-4 flex-1">A cheap smart glasses kit designed for accessibility and experimentation.</p>
+                    <div class="mt-auto pt-4 border-t border-slate-900">
+                        <span class="text-xs font-mono text-purple-400">Hardware</span>
+                    </div>
+                </a>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2024 Ido Aizenbud | <a href="https://orcid.org/0009-0006-6855-567X" target="_blank">ORCID</a></p>
-  </footer>
+                <!-- Repo 2 -->
+                <a href="https://github.com/ido4848/haiku-hebrew" target="_blank" class="flex flex-col p-6 bg-slate-950 border border-slate-800 rounded-xl hover:-translate-y-1 hover:border-purple-500/30 hover:shadow-lg hover:shadow-purple-500/5 transition-all duration-300 group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-2 bg-slate-900 rounded-lg text-slate-400 group-hover:text-purple-400 transition-colors">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                        </div>
+                        <i data-lucide="external-link" class="w-4 h-4 text-slate-600 group-hover:text-slate-300"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-200 mb-2 group-hover:text-purple-300 transition-colors">Haiku Heb</h3>
+                    <p class="text-slate-400 text-sm mb-4 flex-1">An automatic haiku generator in Hebrew, exploring NLP and creative coding.</p>
+                    <div class="mt-auto pt-4 border-t border-slate-900">
+                        <span class="text-xs font-mono text-purple-400">NLP</span>
+                    </div>
+                </a>
 
-  <!-- Link to your JavaScript -->
-  <script src="script.js"></script>
+                <!-- Repo 3 -->
+                <a href="https://github.com/ido4848/intelligence" target="_blank" class="flex flex-col p-6 bg-slate-950 border border-slate-800 rounded-xl hover:-translate-y-1 hover:border-purple-500/30 hover:shadow-lg hover:shadow-purple-500/5 transition-all duration-300 group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-2 bg-slate-900 rounded-lg text-slate-400 group-hover:text-purple-400 transition-colors">
+                            <i data-lucide="terminal" class="w-5 h-5"></i>
+                        </div>
+                        <i data-lucide="external-link" class="w-4 h-4 text-slate-600 group-hover:text-slate-300"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-200 mb-2 group-hover:text-purple-300 transition-colors">Intelligence</h3>
+                    <p class="text-slate-400 text-sm mb-4 flex-1">A generic platform for artificial intelligence research and development.</p>
+                    <div class="mt-auto pt-4 border-t border-slate-900">
+                        <span class="text-xs font-mono text-purple-400">AI Platform</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-2xl font-bold text-slate-100 mb-6">Let's Connect</h2>
+            <p class="text-slate-400 mb-8">
+                Interested in collaboration or just want to chat about single neurons and code? 
+                Feel free to reach out.
+            </p>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                <a href="mailto:ido.aizenbud@gmail.com" class="flex items-center gap-3 px-8 py-4 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-full border border-slate-700 hover:border-indigo-500 transition-all group">
+                    <i data-lucide="mail" class="w-5 h-5 group-hover:text-indigo-400 transition-colors"></i>
+                    <span class="font-medium">ido.aizenbud@gmail.com</span>
+                </a>
+                
+                <a href="https://orcid.org/0009-0006-6855-567X" target="_blank" rel="noreferrer" class="flex items-center gap-3 px-8 py-4 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-full border border-slate-700 hover:border-green-500 transition-all group">
+                    <i data-lucide="file-text" class="w-5 h-5 group-hover:text-green-400 transition-colors"></i>
+                    <span class="font-medium">ORCID Profile</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-slate-950 border-t border-slate-900 text-center text-slate-500 text-sm">
+        <p>© <span id="year"></span> Ido Aizenbud. Built with Tailwind CSS.</p>
+    </footer>
+
+    <!-- Script for Interactivity -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Set Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('bg-slate-950/90', 'backdrop-blur-md', 'border-b', 'border-slate-800', 'py-3');
+                navbar.classList.remove('py-5');
+            } else {
+                navbar.classList.remove('bg-slate-950/90', 'backdrop-blur-md', 'border-b', 'border-slate-800', 'py-3');
+                navbar.classList.add('py-5');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                menuBtn.innerHTML = '<i data-lucide="x" class="w-6 h-6"></i>';
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+            }
+            lucide.createIcons();
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Image Fallback
+        const img = document.getElementById('profile-img');
+        img.onerror = function() {
+            this.onerror = null;
+            this.src = "https://ui-avatars.com/api/?name=Ido+Aizenbud&background=6366f1&color=fff&size=200";
+        };
+    </script>
 </body>
 </html>
