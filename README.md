@@ -1,2 +1,2 @@
 # me
-My personal website
+My personal website, https://ido4848.github.io/me/
